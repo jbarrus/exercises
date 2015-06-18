@@ -83,7 +83,7 @@ describe('throttle', function() {
     setTimeout(function() {
       assert.deepEqual(args, [33, 44, 55]);
       done();
-    }, 15)
+    }, 25)
   });
 
 
