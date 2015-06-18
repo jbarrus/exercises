@@ -1,12 +1,14 @@
 module.exports = function(fn) {
-  var result;
+  var results = {};
 
-  return function() {
-    if (!result) {
-      var args = [].slice.call(arguments);
-      result = fn.apply(null, args);
+  return function(arg) {
+    var args = [].slice.call(arguments);
+    var argsStr = args.join(',');
+
+    if (!results.hasOwnProperty(argsStr)) {
+      results[argsStr] = fn.apply(null, args);
     }
 
-    return result;
-  }
+    return results[argsStr];
+  };
 };
