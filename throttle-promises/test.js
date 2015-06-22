@@ -1,5 +1,6 @@
 var assert = require('assert');
 var throttlePromises = require('./');
+var Promise = Promise | require('../node_modules/promise-polyfill/Promise');
 
 describe('throttle-promises', function() {
   it("doesn't run more than `limit` promises in parallel", function(done) {

@@ -1,43 +1,32 @@
+var Promise = Promise | require('../node_modules/promise-polyfill/Promise');
+
 module.exports = function(max, functions) {
-  var results = [];
-  var running = 0;
-  var callbacks = [];
+  console.log('max', max);
 
-  while(running < max) {
-    running++;
-    functions.shift()().then(function(result) {
-      running--;
-      results.push(result);
-
-      if (running === 0) {
-        callbacks.forEach(function(cb) {
-          cb(results);
-        })
-      }
-    });
-  }
-
-  return {
-    then: function(cb) {
-      callbacks.push(cb);
-    }
-  };
-
-
-  //var last = new Date() - delay;
-  //
-  //return function throttle() {
-  //  var self = this;
-  //  var args = [].slice.call(arguments);
-  //
-  //  var diff = new Date() - last;
-  //  if (diff >= delay) {
-  //    last = new Date();
-  //    return fn.apply(self, args);
-  //  } else {
-  //    setTimeout(function() {
-  //      throttle.apply(self, args);
-  //    }, delay - diff);
-  //  }
-  //}
+  return new Promise(function(resolve) {
+    //var results = [];
+    //var running = 0;
+    //
+    //queue();
+    //queue();
+    //queue();
+    //queue();
+    //queue();
+    //queue();
+    //queue();
+    //
+    //function queue() {
+    //  if (running < max) {
+    //    running++;
+    //    functions.shift()().then(function(result) {
+    //      running--;
+    //      results.push(result);
+    //
+    //      if (running === 0) {
+    //        resolve(results);
+    //      }
+    //    });
+    //  }
+    //}
+  });
 };
