@@ -1,6 +1,7 @@
 var assert = require('assert');
 var throttlePromises = require('./');
-var Promise = Promise | require('../node_modules/promise-polyfill/Promise');
+var expect = require('chai').expect;
+var Promise = Promise || require('../node_modules/promise-polyfill/Promise');
 
 describe('throttle-promises', function() {
   it("doesn't run more than `limit` promises in parallel", function(done) {
@@ -39,8 +40,8 @@ describe('throttle-promises', function() {
       });
 
       assert(passed, 'more than ' + limit + ' promises ran in parallel');
-      assert.deepEqual(results, expectedResults);
-      assert.deepEqual(currentlyExecutingHistory, expectedHistory);
+      expect(results).to.have.members(expectedResults);
+      expect(currentlyExecutingHistory).to.have.members(expectedHistory);
       done();
     });
 
