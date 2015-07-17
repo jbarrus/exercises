@@ -58,7 +58,7 @@ describe('throttle', function() {
     setTimeout(function() {
       clearInterval(interval);
 
-      assert.deepEqual(calledTimes, [0, 11, 22, 33, 44, 55]);
+      assert.deepEqual(calledTimes, [0, 10, 20, 30, 40, 50]);
 
       done();
     }, 59);
@@ -95,7 +95,7 @@ describe('throttle', function() {
     setTimeout(function() {
       assert.deepEqual(args, [33, 44, 55]);
       done();
-    }, 15)
+    }, 25)
     clock.tick(100);
   });
 
